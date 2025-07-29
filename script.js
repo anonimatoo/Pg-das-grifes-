@@ -1,33 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('whatsapp-form');
+    const form = document.getElementById('form-whatsapp');
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const mensagem = document.getElementById('mensagem').value;
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
-        const whatsappNumber = '+5513974173380';
+            // WhatsApp number
+            const whatsappNumber = '5513974173380';
 
-        const whatsappMessage = `Olá, PG DAS GRIFE'S!
+            // Construct the message
+            const whatsappMessage = `Olá! Tenho interesse nos produtos PG DAS GRIFE'S.
 
-        Gostaria de entrar em contato.
-        
-        *Nome:* ${name}
-        *E-mail:* ${email}
-        *Telefone:* ${phone}
-        
-        *Mensagem:*
-        ${message}
-        `;
+*Nome:* ${nome}
+*E-mail:* ${email}
+*Telefone:* ${telefone}
+*Mensagem:* ${mensagem}
+            `;
 
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            // Encode the message for the URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
 
-        window.open(whatsappUrl, '_blank');
-        
-        // Optionally, reset the form after submission
-        form.reset();
-    });
+            // Create the WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Redirect to WhatsApp
+            window.open(whatsappUrl, '_blank');
+        });
+    }
 });
 
