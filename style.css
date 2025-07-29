@@ -1,47 +1,224 @@
-html, body {
-    height: 100%;
+:root {
+    --bg-color: #0d0d1a;
+    --primary-neon: #00ffff;
+    --secondary-neon: #ff00ff;
+    --text-color: #f0f0f0;
+    --input-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
     overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* para suavidade em iOS */
 }
 
-@viewport {
-    width: device-width;
-    zoom: 1.0;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
-@media screen and (max-width: 480px) {
-    .container {
-        padding: 1rem;
-    }
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
 
-    .title {
-        font-size: 2rem;
-    }
+.neon-text-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    color: #fff;
+    text-shadow:
+        0 0 5px var(--primary-neon),
+        0 0 10px var(--primary-neon),
+        0 0 20px var(--primary-neon),
+        0 0 40px var(--secondary-neon),
+        0 0 80px var(--secondary-neon),
+        0 0 90px var(--secondary-neon),
+        0 0 100px var(--secondary-neon);
+    animation: flicker 2s infinite alternate;
+}
 
-    .subtitle {
-        font-size: 1rem;
-    }
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--primary-neon);
+    text-shadow: 0 0 5px var(--primary-neon);
+}
 
-    .description {
-        font-size: 0.9rem;
-    }
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
 
-    .cta-button, .submit-button {
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
-    }
+.product-image-container {
+    position: relative;
+}
 
-    .product-image {
-        width: 100%;
-        height: auto;
-    }
+.product-image {
+    max-width: 100%;
+    width: 350px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5)) drop-shadow(0 0 35px rgba(255, 0, 255, 0.4));
+    transition: transform 0.3s ease;
+}
 
-    .logo {
-        font-size: 1.8rem;
-    }
+.product-image:hover {
+    transform: scale(1.05);
+}
 
-    #whatsapp-form {
-        padding: 0 0.5rem;
+.hero-text p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.neon-button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid var(--primary-neon);
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--primary-neon), inset 0 0 10px var(--primary-neon);
+    transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+    color: var(--bg-color);
+    background-color: var(--primary-neon);
+    box-shadow: 0 0 20px var(--primary-neon), 0 0 40px var(--primary-neon), inset 0 0 10px #fff;
+}
+
+.contact-section {
+    padding: 3rem 0;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    text-align: center;
+}
+
+.neon-text-secondary {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow:
+        0 0 5px var(--secondary-neon),
+        0 0 10px var(--secondary-neon),
+        0 0 15px var(--secondary-neon);
+}
+
+#form-whatsapp {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--input-bg);
+    border: 1px solid var(--primary-neon);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(240, 240, 240, 0.6);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-neon);
+    box-shadow: 0 0 10px var(--secondary-neon);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: rgba(240, 240, 240, 0.5);
+    border-top: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('background.png') repeat;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 0;
+    animation: wave-move 30s linear infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        text-shadow:
+            0 0 5px var(--primary-neon),
+            0 0 10px var(--primary-neon),
+            0 0 20px var(--primary-neon),
+            0 0 40px var(--secondary-neon),
+            0 0 80px var(--secondary-neon);
+    }
+    50% {
+        text-shadow:
+            0 0 7px var(--primary-neon),
+            0 0 12px var(--primary-neon),
+            0 0 25px var(--primary-neon),
+            0 0 45px var(--secondary-neon),
+            0 0 85px var(--secondary-neon);
     }
 }
+
+@keyframes wave-move {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 500px; }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+        text-align: left;
+    }
+    .product-image-container {
+        flex: 1;
+    }
+    .hero-text {
+        flex: 1.5;
+    }
+    .hero-text p {
+        margin: 0 0 2rem 0;
+    }
+}
+
