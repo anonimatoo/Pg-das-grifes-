@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensagem = document.getElementById('mensagem').value;
 
             // WhatsApp number
-            const whatsappNumber = '5513974173380';
+            const whatsappNumber = '5511932365557';
 
             // Construct the message
             const whatsappMessage = `Olá! Tenho interesse nos produtos PG DAS GRIFE'S.
