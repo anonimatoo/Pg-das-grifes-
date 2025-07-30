@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const whatsappNumber = '5511932365557';
 
             // Construct the message
-            const whatsappMessage = `Olá! Tenho interesse nos produtos PG IMPORTS GRIFE'S.
+            const whatsappMessage = `Olá! Tenho interesse nos produtos PG STILU'S.
 
 *Nome:* ${nome}
 *E-mail:* ${email}
